@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iriham Nangobi Mukoka | Cybersecurity Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy2: #0f2040;
+    --teal: #00d4aa;
+    --teal2: #00a887;
+    --amber: #f59e0b;
+    --red: #ef4444;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --card: #111f36;
+    --border: #1e3a5f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* GRID BACKGROUND */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,212,170,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,170,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--teal);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 2rem 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  .hero-content { max-width: 700px; }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,212,170,0.08);
+    border: 1px solid rgba(0,212,170,0.25);
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.3); }
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero h1 span { color: var(--teal); }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 580px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+    font-weight: 300;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .stat-item { text-align: left; }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--teal);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    color: var(--navy);
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--teal2);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+    transform: translateY(-2px);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECTIONS */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 80px 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--teal);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 800;
+    margin-bottom: 3rem;
+    color: var(--text);
+  }
+
+  .section-title span { color: var(--teal); }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .skill-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-3px);
+  }
+
+  .skill-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    background: rgba(0,212,170,0.08);
+    border: 1px solid rgba(0,212,170,0.2);
+    color: var(--teal);
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal), transparent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .project-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-4px);
+  }
+
+  .project-card:hover::before { opacity: 1; }
+
+  .project-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+    opacity: 0.7;
+  }
+
+  .project-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .project-card p {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 1rem;
+  }
+
+  .stack-tag {
+    background: rgba(245,158,11,0.1);
+    border: 1px solid rgba(245,158,11,0.2);
+    color: var(--amber);
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+  }
+
+  .project-link {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--teal);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s;
+  }
+
+  .project-link:hover { gap: 10px; }
+
+  /* CODE BLOCK */
+  .code-block {
+    background: #060f1e;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin: 0.75rem 0;
+    overflow-x: auto;
+  }
+
+  .code-block pre {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: #a8d8b9;
+    line-height: 1.7;
+  }
+
+  .code-comment { color: #4a6a8a; }
+  .code-keyword { color: #569cd6; }
+  .code-string { color: #ce9178; }
+  .code-func { color: var(--teal); }
+
+  /* RESEARCH */
+  .research-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: start;
+    transition: border-color 0.2s;
+  }
+
+  .research-card:hover { border-color: var(--teal); }
+
+  .research-badge {
+    background: rgba(0,212,170,0.1);
+    border: 1px solid rgba(0,212,170,0.3);
+    color: var(--teal);
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+  }
+
+  /* CERTS */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .cert-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .cert-card:hover {
+    border-color: var(--teal);
+    transform: translateX(4px);
+  }
+
+  .cert-icon {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    background: rgba(0,212,170,0.1);
+    border: 1px solid rgba(0,212,170,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .cert-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .cert-issuer {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-section::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at center, rgba(0,212,170,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* MITRE TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin-top: 0.75rem;
+  }
+
+  th {
+    background: rgba(0,212,170,0.08);
+    color: var(--teal);
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid var(--border);
+  }
+
+  td {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .hero-stats { gap: 1.5rem; }
+    .research-card { grid-template-columns: 1fr; }
+    nav .nav-links { display: none; }
+    .contact-section { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">// NANGOBI.IRIHAM</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#certs">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">CYBERSECURITY & AI PORTFOLIO</div>
+    <h1>Iriham Nangobi<br><span>Mukoka</span></h1>
+    <p class="hero-desc">
+      Cybersecurity Analyst · MBA Candidate · AI Security Researcher<br>
+      Specializing in threat detection, GRC, fraud risk, and securing AI-driven systems.
+      Based in Virginia — open to remote, hybrid & full-time roles.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Events Investigated</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">30%</div>
+        <div class="stat-label">Risk Exposure Reduced</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Portfolio Projects</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3.81</div>
+        <div class="stat-label">MBA GPA</div>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="mailto:nangobiirihammukoka@gmail.com" class="btn-outline">Contact Me</a>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">// 00 — ABOUT</div>
+  <h2 class="section-title">About <span>Me</span></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
+    <div>
+      <p style="color:var(--muted);font-size:1rem;line-height:1.85;margin-bottom:1.25rem;">
+        I am a cybersecurity professional and MBA candidate (Cybersecurity Concentration) at UNC Greensboro, currently working as a Cybersecurity Analyst at DestinationNova Corp, supporting the Suryana AI wellness platform through vulnerability assessments, threat analysis, and secure system development.
+      </p>
+      <p style="color:var(--muted);font-size:1rem;line-height:1.85;margin-bottom:1.25rem;">
+        My background spans SOC operations, GRC frameworks (NIST 800-53, ISO 27001), fraud risk analysis, and AI security, built through hands-on consulting engagements, academic research on generative AI in fintech, and competitive cyber training including the US Cyber Challenge Top 100.
+      </p>
+      <p style="color:var(--muted);font-size:1rem;line-height:1.85;">
+        I bring a cross-disciplinary perspective spanning cybersecurity operations, risk management, data analytics, and AI, and thrive in fast-moving environments where security and technology intersect.
+      </p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.25rem;">
+        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--teal);letter-spacing:0.1em;margin-bottom:0.75rem;">EDUCATION</div>
+        <div style="font-size:0.9rem;font-weight:500;color:var(--text);margin-bottom:0.25rem;">MBA, Cybersecurity Concentration</div>
+        <div style="font-size:0.82rem;color:var(--muted);">UNC Greensboro · Expected Spring 2026</div>
+        <div style="border-top:1px solid var(--border);margin:0.75rem 0;"></div>
+        <div style="font-size:0.9rem;font-weight:500;color:var(--text);margin-bottom:0.25rem;">BSc — Business Computing</div>
+        <div style="font-size:0.82rem;color:var(--muted);">Makerere University · 2021</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.25rem;">
+        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--teal);letter-spacing:0.1em;margin-bottom:0.75rem;">CURRENT ROLE</div>
+        <div style="font-size:0.9rem;font-weight:500;color:var(--text);margin-bottom:0.25rem;">Cybersecurity Analyst Intern</div>
+        <div style="font-size:0.82rem;color:var(--muted);">DestinationNova Corp · Remote</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.25rem;">
+        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--teal);letter-spacing:0.1em;margin-bottom:0.75rem;">OPEN TO</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:0.25rem;">
+          <span class="tag">Cybersecurity</span>
+          <span class="tag">GRC</span>
+          <span class="tag">GenAI Consulting</span>
+          <span class="tag">Fraud Risk</span>
+          <span class="tag">Remote / Hybrid</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">// 01 — EXPERTISE</div>
+  <h2 class="section-title">Core <span>Skills</span></h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🛡️</div>
+      <h3>Security Operations</h3>
+      <div class="skill-tags">
+        <span class="tag">Splunk</span>
+        <span class="tag">SIEM</span>
+        <span class="tag">SOAR</span>
+        <span class="tag">Wireshark</span>
+        <span class="tag">Nessus</span>
+        <span class="tag">CrowdStrike</span>
+        <span class="tag">IOC Analysis</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📋</div>
+      <h3>GRC & Compliance</h3>
+      <div class="skill-tags">
+        <span class="tag">NIST 800-53</span>
+        <span class="tag">ISO 27001</span>
+        <span class="tag">SOC 2</span>
+        <span class="tag">PCI DSS</span>
+        <span class="tag">HIPAA</span>
+        <span class="tag">OFAC</span>
+        <span class="tag">Risk Auditing</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <h3>AI & GenAI Security</h3>
+      <div class="skill-tags">
+        <span class="tag">AI Risk Analysis</span>
+        <span class="tag">Prompt Engineering</span>
+        <span class="tag">Firebase Security</span>
+        <span class="tag">LLM Security</span>
+        <span class="tag">Secure Architecture</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📊</div>
+      <h3>Data & Analytics</h3>
+      <div class="skill-tags">
+        <span class="tag">Python</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">Tableau</span>
+        <span class="tag">Excel</span>
+        <span class="tag">SOAR Scripting</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">☁️</div>
+      <h3>Cloud Security</h3>
+      <div class="skill-tags">
+        <span class="tag">Cloud IAM</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">Zero Trust</span>
+        <span class="tag">API Security</span>
+        <span class="tag">Encryption</span>
+        <span class="tag">Least Privilege</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔍</div>
+      <h3>Threat Intelligence</h3>
+      <div class="skill-tags">
+        <span class="tag">MITRE ATT&CK</span>
+        <span class="tag">Threat Hunting</span>
+        <span class="tag">Purple AI</span>
+        <span class="tag">SentinelOne</span>
+        <span class="tag">IOC Mapping</span>
+        <span class="tag">OSINT</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">// 02 — WORK</div>
+  <h2 class="section-title">Portfolio <span>Projects</span></h2>
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <div class="project-num">PROJECT 01</div>
+      <h3>Suryana Mental Wellness Platform — AI Security & Backend</h3>
+      <!-- Visual mockup -->
+      <div style="background:#060f1e;border:1px solid #1e3a5f;border-radius:6px;padding:1rem;margin:0.75rem 0;overflow:hidden;">
+        <svg width="100%" viewBox="0 0 420 160" xmlns="http://www.w3.org/2000/svg">
+          <!-- App header bar -->
+          <rect x="0" y="0" width="420" height="32" rx="4" fill="#0f2040"/>
+          <circle cx="16" cy="16" r="5" fill="#ef4444" opacity="0.8"/>
+          <circle cx="30" cy="16" r="5" fill="#f59e0b" opacity="0.8"/>
+          <circle cx="44" cy="16" r="5" fill="#22c55e" opacity="0.8"/>
+          <text x="210" y="20" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="monospace">Suryana Wellness Platform</text>
+          <!-- Chat area -->
+          <rect x="8" y="40" width="280" height="28" rx="12" fill="#1e3a5f" opacity="0.8"/>
+          <text x="20" y="58" fill="#94a3b8" font-size="9" font-family="monospace">How are you feeling today?</text>
+          <circle cx="370" cy="54" r="18" fill="#00d4aa" opacity="0.15"/>
+          <text x="370" y="59" text-anchor="middle" fill="#00d4aa" font-size="9" font-family="monospace">AI</text>
+          <!-- User response bubble -->
+          <rect x="100" y="76" width="180" height="24" rx="12" fill="#00d4aa" opacity="0.15"/>
+          <text x="190" y="92" text-anchor="middle" fill="#00d4aa" font-size="9" font-family="monospace">I am feeling anxious today</text>
+          <!-- XP bar -->
+          <rect x="8" y="112" width="404" height="6" rx="3" fill="#1e3a5f"/>
+          <rect x="8" y="112" width="240" height="6" rx="3" fill="#00d4aa" opacity="0.6"/>
+          <text x="8" y="130" fill="#94a3b8" font-size="8" font-family="monospace">XP: 2400 / 4000</text>
+          <text x="412" y="130" text-anchor="end" fill="#00d4aa" font-size="8" font-family="monospace">Level 12</text>
+          <!-- Firebase badge -->
+          <rect x="290" y="108" width="80" height="18" rx="4" fill="#f59e0b" opacity="0.1"/>
+          <text x="330" y="120" text-anchor="middle" fill="#f59e0b" font-size="8" font-family="monospace">Firebase Firestore</text>
+          <!-- Security lock icon -->
+          <rect x="8" y="140" width="404" height="14" rx="3" fill="#00d4aa" opacity="0.05"/>
+          <text x="210" y="151" text-anchor="middle" fill="#00d4aa" font-size="8" font-family="monospace">🔒 Encrypted · Least Privilege IAM · Secure API</text>
+        </svg>
+      </div>
+      <p>Currently contributing to the Suryana mental wellness platform at DestinationNova Corp, focusing on secure AI system development and cybersecurity operations across an active production environment.</p>
+      <div style="margin: 0.75rem 0;">
+        <p style="font-size:0.85rem;color:var(--text);font-weight:500;margin-bottom:0.4rem;">Platform Contributions:</p>
+        <ul style="color:var(--muted);font-size:0.85rem;padding-left:1.2rem;line-height:1.9;">
+          <li>Designed and integrated secure AI voice-chat functionality into the platform</li>
+          <li>Implemented Firebase (Firestore) database architecture to persist user activity, XP progression, and daily engagement data</li>
+        </ul>
+      </div>
+      <div style="margin: 0.75rem 0;">
+        <p style="font-size:0.85rem;color:var(--text);font-weight:500;margin-bottom:0.4rem;">General Security Duties:</p>
+        <ul style="color:var(--muted);font-size:0.85rem;padding-left:1.2rem;line-height:1.9;">
+          <li>Vulnerability assessments and penetration testing support</li>
+          <li>System monitoring for suspicious activity and cybersecurity risks</li>
+          <li>Cyber threat analysis related to child safety and human trafficking</li>
+          <li>Cybersecurity policy review, documentation, and procedure enhancement</li>
+          <li>Cybersecurity research and digital forensics support</li>
+          <li>Security risk assessments and mitigation planning</li>
+          <li>Cross-functional collaboration with engineering and research teams</li>
+        </ul>
+      </div>
+      <div class="project-stack">
+        <span class="stack-tag">Firebase</span>
+        <span class="stack-tag">AI Voice Integration</span>
+        <span class="stack-tag">Penetration Testing</span>
+        <span class="stack-tag">Digital Forensics</span>
+        <span class="stack-tag">Risk Assessment</span>
+      </div>
+      <a href="https://github.com/tejasavatar/suryana-web-dnova" class="project-link" target="_blank">View on GitHub →</a>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <div class="project-num">PROJECT 02</div>
+      <h3>Threat Hunting & MITRE ATT&CK Mapping</h3>
+      <!-- Visual mockup -->
+      <div style="background:#060f1e;border:1px solid #1e3a5f;border-radius:6px;padding:1rem;margin:0.75rem 0;">
+        <svg width="100%" viewBox="0 0 420 130" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="12" fill="#00d4aa" font-size="9" font-family="monospace">MITRE ATT&amp;CK — Attack Chain Mapping</text>
+          <!-- Attack chain steps -->
+          <rect x="0" y="22" width="90" height="36" rx="4" fill="#ef4444" opacity="0.2"/>
+          <rect x="0" y="22" width="90" height="36" rx="4" fill="none" stroke="#ef4444" stroke-width="0.5"/>
+          <text x="45" y="36" text-anchor="middle" fill="#ef4444" font-size="8" font-family="monospace">Initial Access</text>
+          <text x="45" y="50" text-anchor="middle" fill="#94a3b8" font-size="7" font-family="monospace">T1566 Phishing</text>
+          <path d="M90 40 L108 40" stroke="#94a3b8" stroke-width="0.8" marker-end="url(#arr2)"/>
+          <rect x="110" y="22" width="90" height="36" rx="4" fill="#f59e0b" opacity="0.2"/>
+          <rect x="110" y="22" width="90" height="36" rx="4" fill="none" stroke="#f59e0b" stroke-width="0.5"/>
+          <text x="155" y="36" text-anchor="middle" fill="#f59e0b" font-size="8" font-family="monospace">Execution</text>
+          <text x="155" y="50" text-anchor="middle" fill="#94a3b8" font-size="7" font-family="monospace">T1059 PowerShell</text>
+          <path d="M200 40 L218 40" stroke="#94a3b8" stroke-width="0.8" marker-end="url(#arr2)"/>
+          <rect x="220" y="22" width="90" height="36" rx="4" fill="#a855f7" opacity="0.2"/>
+          <rect x="220" y="22" width="90" height="36" rx="4" fill="none" stroke="#a855f7" stroke-width="0.5"/>
+          <text x="265" y="36" text-anchor="middle" fill="#a855f7" font-size="8" font-family="monospace">Persistence</text>
+          <text x="265" y="50" text-anchor="middle" fill="#94a3b8" font-size="7" font-family="monospace">T1547 Reg Keys</text>
+          <path d="M310 40 L328 40" stroke="#94a3b8" stroke-width="0.8" marker-end="url(#arr2)"/>
+          <rect x="330" y="22" width="90" height="36" rx="4" fill="#00d4aa" opacity="0.2"/>
+          <rect x="330" y="22" width="90" height="36" rx="4" fill="none" stroke="#00d4aa" stroke-width="0.5"/>
+          <text x="375" y="36" text-anchor="middle" fill="#00d4aa" font-size="8" font-family="monospace">Def. Evasion</text>
+          <text x="375" y="50" text-anchor="middle" fill="#94a3b8" font-size="7" font-family="monospace">T1027 Obfuscate</text>
+          <defs><marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M2 2L8 5L2 8" fill="none" stroke="#94a3b8" stroke-width="1.5"/></marker></defs>
+          <!-- IOC findings -->
+          <rect x="0" y="72" width="420" height="50" rx="4" fill="#0f2040"/>
+          <text x="8" y="86" fill="#94a3b8" font-size="8" font-family="monospace">IOC FINDINGS</text>
+          <text x="8" y="100" fill="#ef4444" font-size="8" font-family="monospace">▶  Suspicious PowerShell execution from HKCU\Run key</text>
+          <text x="8" y="113" fill="#f59e0b" font-size="8" font-family="monospace">▶  Base64 encoded payload detected in script block</text>
+        </svg>
+      </div>
+      <p>Conducted structured threat analysis exercises simulating SOC monitoring workflows. Investigated abnormal system activity and mapped attacker techniques to MITRE ATT&CK categories across a full attack chain from initial access to defense evasion.</p>
+      <div class="project-stack">
+        <span class="stack-tag">MITRE ATT&CK</span>
+        <span class="stack-tag">Threat Intelligence</span>
+        <span class="stack-tag">Log Analysis</span>
+      </div>
+      <table>
+        <tr><th>Stage</th><th>MITRE Technique</th></tr>
+        <tr><td>Initial Access</td><td>Phishing (T1566)</td></tr>
+        <tr><td>Execution</td><td>PowerShell (T1059.001)</td></tr>
+        <tr><td>Persistence</td><td>Registry Run Keys (T1547)</td></tr>
+        <tr><td>Defense Evasion</td><td>Obfuscated Scripts (T1027)</td></tr>
+      </table>
+      <br>
+      <a href="https://github.com/Nangobiiriham/threat-hunting-labs" class="project-link">View on GitHub →</a>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+      <div class="project-num">PROJECT 03</div>
+      <h3>Web Application Vulnerability Analysis</h3>
+      <p>Simulated a watering hole XSS attack scenario to demonstrate how attackers manipulate user sessions and inject malicious scripts. Developed and documented remediation controls including input validation, output encoding, and Content Security Policies.</p>
+      <div class="project-stack">
+        <span class="stack-tag">Burp Suite</span>
+        <span class="stack-tag">XSS</span>
+        <span class="stack-tag">OWASP</span>
+        <span class="stack-tag">CSP</span>
+      </div>
+      <div class="code-block">
+        <pre><span class="code-comment">// XSS Payload Demonstration</span>
+<span class="code-keyword">javascript</span>:<span class="code-func">alert</span>(<span class="code-string">"Session hijacking demo"</span>)
+
+<span class="code-comment">// Mitigation: Content Security Policy</span>
+Content-Security-Policy: <span class="code-string">default-src 'self'</span></pre>
+      </div>
+      <a href="https://github.com/Nangobiiriham/web-application-security" class="project-link">View on GitHub →</a>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project-card">
+      <div class="project-num">PROJECT 04</div>
+      <!-- Visual mockup -->
+      <div style="background:#060f1e;border:1px solid #1e3a5f;border-radius:6px;padding:1rem;margin:0.75rem 0;">
+        <svg width="100%" viewBox="0 0 420 150" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="12" fill="#00d4aa" font-size="9" font-family="monospace">SIEM — Credential Stuffing Investigation</text>
+          <!-- SQL query -->
+          <rect x="0" y="18" width="420" height="58" rx="4" fill="#0a1628"/>
+          <text x="8" y="32" fill="#569cd6" font-size="8" font-family="monospace">SELECT</text>
+          <text x="48" y="32" fill="#9cdcfe" font-size="8" font-family="monospace">user_id, source_ip, COUNT(*) AS attempts</text>
+          <text x="8" y="44" fill="#569cd6" font-size="8" font-family="monospace">FROM</text>
+          <text x="40" y="44" fill="#9cdcfe" font-size="8" font-family="monospace">login_attempts WHERE status = </text>
+          <text x="240" y="44" fill="#ce9178" font-size="8" font-family="monospace">'failed'</text>
+          <text x="8" y="56" fill="#569cd6" font-size="8" font-family="monospace">GROUP BY</text>
+          <text x="60" y="56" fill="#9cdcfe" font-size="8" font-family="monospace">user_id, source_ip HAVING COUNT(*) &gt; 5;</text>
+          <text x="8" y="68" fill="#4a6a8a" font-size="8" font-family="monospace">-- Execution time: 1.2ms · 3 rows returned</text>
+          <!-- Results table -->
+          <rect x="0" y="84" width="420" height="18" rx="2" fill="#1e3a5f"/>
+          <text x="8" y="96" fill="#00d4aa" font-size="8" font-family="monospace">user_id</text>
+          <text x="140" y="96" fill="#00d4aa" font-size="8" font-family="monospace">source_ip</text>
+          <text x="290" y="96" fill="#00d4aa" font-size="8" font-family="monospace">attempts</text>
+          <text x="8" y="112" fill="#e2e8f0" font-size="8" font-family="monospace">user_4821</text>
+          <text x="140" y="112" fill="#e2e8f0" font-size="8" font-family="monospace">192.168.4.22</text>
+          <text x="290" y="112" fill="#ef4444" font-size="8" font-family="monospace">47</text>
+          <text x="8" y="124" fill="#e2e8f0" font-size="8" font-family="monospace">user_0033</text>
+          <text x="140" y="124" fill="#e2e8f0" font-size="8" font-family="monospace">10.0.0.187</text>
+          <text x="290" y="124" fill="#f59e0b" font-size="8" font-family="monospace">23</text>
+          <text x="8" y="136" fill="#e2e8f0" font-size="8" font-family="monospace">user_1197</text>
+          <text x="140" y="136" fill="#e2e8f0" font-size="8" font-family="monospace">172.16.3.91</text>
+          <text x="290" y="136" fill="#f59e0b" font-size="8" font-family="monospace">11</text>
+          <rect x="270" y="102" width="148" height="40" rx="2" fill="#ef4444" opacity="0.05"/>
+        </svg>
+      </div>
+      <h3>SIEM Threat Investigation — SOC Simulation</h3>
+      <p>Simulated a SOC investigation workflow to detect a credential stuffing attack. Identified repeated login attempts from a single IP targeting multiple accounts, mapped to MITRE ATT&CK, and developed automated alerting rules and remediation recommendations.</p>
+      <div class="project-stack">
+        <span class="stack-tag">Splunk</span>
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">MITRE ATT&CK</span>
+        <span class="stack-tag">SIEM</span>
+      </div>
+      <div class="code-block">
+        <pre><span class="code-comment">-- Detect credential stuffing</span>
+<span class="code-keyword">SELECT</span> user_id, source_ip, <span class="code-func">COUNT</span>(*) AS attempts
+<span class="code-keyword">FROM</span> login_attempts
+<span class="code-keyword">WHERE</span> status = <span class="code-string">'failed'</span>
+  <span class="code-keyword">AND</span> attempt_time > <span class="code-func">NOW</span>() - INTERVAL <span class="code-string">'1 hour'</span>
+<span class="code-keyword">GROUP BY</span> user_id, source_ip
+<span class="code-keyword">HAVING</span> <span class="code-func">COUNT</span>(*) > 5
+<span class="code-keyword">ORDER BY</span> attempts <span class="code-keyword">DESC</span>;</pre>
+      </div>
+      <a href="https://github.com/Nangobiiriham/threat-hunting-labs" class="project-link">View on GitHub →</a>
+    </div>
+
+    <!-- Project 5 -->
+    <div class="project-card">
+      <div class="project-num">PROJECT 05</div>
+      <h3>Cloud Security Risk Assessment</h3>
+      <p>Performed a simulated cloud security audit aligned with NIST CSF and ISO 27001. Identified critical risks including misconfigured storage buckets, weak IAM policies, and insecure API endpoints. Developed a Zero Trust-aligned security architecture recommendation.</p>
+      <div class="project-stack">
+        <span class="stack-tag">NIST CSF</span>
+        <span class="stack-tag">ISO 27001</span>
+        <span class="stack-tag">Zero Trust</span>
+        <span class="stack-tag">Cloud IAM</span>
+      </div>
+      <a href="https://github.com/Nangobiiriham/cybersecurity-portfolio" class="project-link">View on GitHub →</a>
+    </div>
+
+    <!-- Project 6 -->
+    <div class="project-card">
+      <div class="project-num">PROJECT 06</div>
+      <!-- Visual mockup: terminal output -->
+      <div style="background:#060f1e;border:1px solid #1e3a5f;border-radius:6px;padding:1rem;margin:0.75rem 0;">
+        <svg width="100%" viewBox="0 0 420 140" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="420" height="20" rx="4" fill="#0f2040"/>
+          <text x="8" y="14" fill="#94a3b8" font-size="8" font-family="monospace">brute_force_detector.py — Python 3.12</text>
+          <text x="8" y="34" fill="#94a3b8" font-size="8" font-family="monospace">$</text>
+          <text x="18" y="34" fill="#00d4aa" font-size="8" font-family="monospace">python brute_force_detector.py security_logs.txt</text>
+          <text x="8" y="50" fill="#4a6a8a" font-size="8" font-family="monospace">Analyzing 1,247 log entries...</text>
+          <text x="8" y="64" fill="#ef4444" font-size="8" font-family="monospace">⚠  ALERT: 192.168.4.22 — 47 failed logins detected</text>
+          <text x="8" y="78" fill="#ef4444" font-size="8" font-family="monospace">⚠  ALERT: 10.0.0.187   — 23 failed logins detected</text>
+          <text x="8" y="92" fill="#f59e0b" font-size="8" font-family="monospace">⚡  WARN:  172.16.3.91  — 11 failed logins detected</text>
+          <text x="8" y="106" fill="#4a6a8a" font-size="8" font-family="monospace">────────────────────────────────────────</text>
+          <text x="8" y="120" fill="#00d4aa" font-size="8" font-family="monospace">✓  Scan complete: 3 suspicious IPs flagged</text>
+          <text x="8" y="134" fill="#4a6a8a" font-size="8" font-family="monospace">Runtime: 0.003s · Threshold: &gt;5 attempts</text>
+        </svg>
+      </div>
+      <h3>Security Automation Scripts</h3>
+      <p>Developed Python and SQL scripts for automated security log analysis, brute force detection, and SIEM workflow automation — significantly reducing manual log review time in SOC environments.</p>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">SQL</span>
+        <span class="stack-tag">SOAR</span>
+        <span class="stack-tag">Log Analysis</span>
+      </div>
+      <div class="code-block">
+        <pre><span class="code-keyword">import</span> re
+
+<span class="code-keyword">def</span> <span class="code-func">detect_brute_force</span>(log_file):
+    attempts = {}
+    <span class="code-keyword">with</span> <span class="code-func">open</span>(log_file) <span class="code-keyword">as</span> f:
+        <span class="code-keyword">for</span> line <span class="code-keyword">in</span> f:
+            <span class="code-keyword">if</span> <span class="code-string">"failed login"</span> <span class="code-keyword">in</span> line:
+                ip = re.<span class="code-func">search</span>(<span class="code-string">r'\d+\.\d+\.\d+\.\d+'</span>, line)
+                <span class="code-keyword">if</span> ip:
+                    attempts[ip.<span class="code-func">group</span>()] = attempts.<span class="code-func">get</span>(ip.<span class="code-func">group</span>(), 0) + 1
+    <span class="code-keyword">return</span> {k: v <span class="code-keyword">for</span> k, v <span class="code-keyword">in</span> attempts.<span class="code-func">items</span>() <span class="code-keyword">if</span> v > 5}</pre>
+      </div>
+      <a href="https://github.com/Nangobiiriham/security-tools-scripts" class="project-link">View on GitHub →</a>
+    </div>
+
+    <!-- Project 7 -->
+    <div class="project-card">
+      <div class="project-num">PROJECT 07</div>
+      <h3>AI-Driven Threat Hunting — SentinelOne</h3>
+      <p>Participated in SentinelOne's Threat Ops AI-Driven Threat Hunting Challenge. Used Purple AI and Singularity Data Lake to investigate adversary behaviors, surface IOCs using natural-language queries, and validate SOC events in simulated enterprise environments.</p>
+      <div class="project-stack">
+        <span class="stack-tag">SentinelOne</span>
+        <span class="stack-tag">Purple AI</span>
+        <span class="stack-tag">Singularity</span>
+        <span class="stack-tag">GenAI</span>
+      </div>
+      <a href="https://github.com/Nangobiiriham/threat-hunting-labs" class="project-link">View on GitHub →</a>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-label">// 03 — RESEARCH</div>
+  <h2 class="section-title">Academic <span>Research</span></h2>
+  <div class="research-card">
+    <div>
+      <h3 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:0.75rem;">
+        Generative AI and Financial Inclusion in Africa: Strategic Agility of Chipper Cash Uganda
+      </h3>
+      <p style="color:var(--muted);font-size:0.9rem;margin-bottom:1rem;">
+        Analyzed how generative AI is transforming cross-border payment operations and financial inclusion in emerging markets. Modeled transaction behavior patterns, identified fraud exploitation risks in AI-driven fintech systems, and proposed OFAC-aligned data governance and security controls in accordance with ISO 27001 and AI ethics frameworks.
+      </p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span class="tag">GenAI</span>
+        <span class="tag">Fintech Security</span>
+        <span class="tag">Fraud Risk</span>
+        <span class="tag">OFAC</span>
+        <span class="tag">ISO 27001</span>
+        <span class="tag">Data Governance</span>
+      </div>
+    </div>
+    <div>
+      <div class="research-badge">SUBMITTED — AIB INSIGHTS</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CERTS -->
+<section id="certs">
+  <div class="section-label">// 04 — CREDENTIALS</div>
+  <h2 class="section-title">Certifications & <span>Achievements</span></h2>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-icon">🔐</div>
+      <div>
+        <div class="cert-name">CompTIA Security+</div>
+        <div class="cert-issuer">CompTIA — Expected May 2026</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🛡️</div>
+      <div>
+        <div class="cert-name">Google Cybersecurity Professional</div>
+        <div class="cert-issuer">Google — March 2025</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">💼</div>
+      <div>
+        <div class="cert-name">Deloitte Cyber Job Simulation</div>
+        <div class="cert-issuer">Deloitte — 2025</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🤖</div>
+      <div>
+        <div class="cert-name">Prompt Engineering for ChatGPT</div>
+        <div class="cert-issuer">Coursera — July 2025</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🏆</div>
+      <div>
+        <div class="cert-name">US Cyber Challenge — Top 100</div>
+        <div class="cert-issuer">USCC Virtual Camp — Summer 2025</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🎓</div>
+      <div>
+        <div class="cert-name">Truist Emerging Leaders</div>
+        <div class="cert-issuer">Truist — October 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-section">
+    <div class="section-label" style="justify-content:center;display:flex;">// 05 — CONTACT</div>
+    <h2 class="section-title" style="margin-bottom:1rem;">Let's <span>Connect</span></h2>
+    <p style="color:var(--muted);max-width:480px;margin:0 auto;font-size:0.95rem;">
+      Open to cybersecurity, GRC, GenAI, and consulting roles — remote, hybrid, or full-time in VA, MD, PA, NJ.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:nangobiirihammukoka@gmail.com" class="btn-primary">nangobiirihammukoka@gmail.com</a>
+      <a href="tel:4343009371" class="btn-outline">(434) 300-9371</a>
+      <a href="https://linkedin.com/in/nangobi-iriham-mukoka" class="btn-outline" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Nangobiiriham" class="btn-outline" target="_blank">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Iriham Nangobi Mukoka · Built with purpose · Virginia, USA</p>
+</footer>
+
+</body>
+</html>
